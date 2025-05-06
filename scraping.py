@@ -1,4 +1,8 @@
+import requests
 import json
+
+url = 'https://infosimples.com/vagas/desafio/commercia/product.html'
+response = requests.get(url)
 
 final_response = {
     "title": "",
