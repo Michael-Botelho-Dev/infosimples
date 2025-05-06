@@ -1,4 +1,10 @@
 {
   "title": "Rubber Duck MK Ultra",
-  "brand": "Duck Makers Inc."
+  "brand": "Duck Makers Inc.",
+  "categories": [
+    "Commercia",
+    "Health & Care",
+    "Bath",
+    "Rubber Ducks"
+  ]
 }
