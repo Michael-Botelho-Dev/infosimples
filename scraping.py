@@ -2,29 +2,30 @@ import requests
 import json
 from bs4 import BeautifulSoup
 
-# request
+# Realiza a requisição HTTP para obter o conteúdo da página do produto
 url = 'https://infosimples.com/vagas/desafio/commercia/product.html'
 response = requests.get(url)
 
-# parsing with BeautfulSoup
+# Faz o parsing do HTML usando BeautifulSoup
 soup = BeautifulSoup(response.text, 'html.parser')
 
+# Dicionário que armazenará todos os dados estruturados do produto
 final_response = {}
 
-# title
+# Extrai o título do produto
 final_response["title"] = soup.select_one('h2#product_title').get_text()
 
-# brand
+# Extrai a marca do produto
 final_response["brand"] = soup.select_one('.brand').get_text()
 
-# categories
+# Extrai as categorias do produto a partir da navegação
 categories = soup.select("nav.current-category a")
 final_response["categories"] = [cat.get_text() for cat in categories]
 
-# description 
+# Extrai a descrição detalhada do produto 
 final_response["description"] = soup.select_one('.proddet').get_text(strip=True)
 
-# skus
+# Extrai as variações (SKUs) do produto, incluindo nome, preços e disponibilidade
 final_response["skus"] = []
 
 for card in soup.select(".card"):
@@ -36,7 +37,7 @@ for card in soup.select(".card"):
         "available": "not-avaliable" not in card.get("class", [])
     })
 
-# properties
+# Extrai as propriedades técnicas do produto
 final_response["properties"] = []
 
 for row in soup.select(".pure-table tr"):
@@ -50,7 +51,7 @@ for row in soup.select(".pure-table tr"):
             "value": value
         })
 
-# reviews
+# Extrai as avaliações (reviews) feitas pelos usuários
 final_response["reviews"] = []
 
 for review in soup.select(".analisebox"):
@@ -61,17 +62,15 @@ for review in soup.select(".analisebox"):
         "text": review.select("p")[-1].get_text(strip=True)
     })
 
-
-
-# reviews_average_score
+# Extrai a média geral das avaliações dos usuários
 score = soup.select_one('#comments h4')
 final_response["reviews_average_score"] = float(score.get_text().split(":")[1].split("/")[0].strip())
 
-# url
+# Armazena a URL de origem dos dados
 final_response["url"] = url 
 
-# export
+# Exporta os dados estruturados para um arquivo JSON
 with open ('produto.json', 'w',encoding='utf-8') as f:
     json.dump(final_response, f, indent=2, ensure_ascii=False)
 
-print("✅ Sucesso.")
+print("✅ Dados extraídos e salvos com sucesso.")    
