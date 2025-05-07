@@ -27,6 +27,16 @@ final_response["description"] = soup.select_one('.proddet p').get_text(strip=Tru
 # skus
 final_response["skus"] = []
 
+for card in soup.select(".card"):
+
+    final_response["skus"].append({
+        "name": card.select_one(".prod-nome").get_text(strip=True),
+        "current_price": float(card.select_one(".prod-pnow").get_text(strip=True).replace("R$", "").replace(",", ".")) if card.select_one(".prod-pnow") else None,
+        "old_price": float(card.select_one(".prod-pold").get_text(strip=True).replace("R$", "").replace(",", ".")) if card.select_one(".prod-pold") else None,
+        "available": "not-avaliable" not in card.get("class", [])
+    })
+
+
 
 # reviews_average_score
 score = soup.select_one('#comments h4')

@@ -8,6 +8,26 @@
     "Rubber Ducks"
   ],
   "description": "Apresentando os Patos de Borracha Quânticos, a última palavra em diversão aquática! Criados pelo excêntrico Dr. Quacksalot, esses patinhos de borracha vão além do comum, com habilidades de fala, dança e personalidades únicas. Com sua durabilidade de alta qualidade, esses patos são garantia de diversão interminável na banheira. Escolha entre uma variedade de cores e estilos e mergulhe na loucura científica do Dr. Quacksalot hoje mesmo!",
+  "skus": [
+    {
+      "name": "Rubber Duck MK Ultra - Original",
+      "current_price": 12.68,
+      "old_price": 16.98,
+      "available": true
+    },
+    {
+      "name": "Rubber Duck MK Ultra - Summer Version",
+      "current_price": null,
+      "old_price": null,
+      "available": false
+    },
+    {
+      "name": "Rubber Duck MK Ultra - Batman Version",
+      "current_price": 18.98,
+      "old_price": null,
+      "available": true
+    }
+  ],
   "reviews_average_score": 3.3,
   "url": "https://infosimples.com/vagas/desafio/commercia/product.html"
 }
