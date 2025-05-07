@@ -4,7 +4,14 @@ from bs4 import BeautifulSoup
 
 # Realiza a requisição HTTP para obter o conteúdo da página do produto
 url = 'https://infosimples.com/vagas/desafio/commercia/product.html'
-response = requests.get(url)
+
+# Faz a requisição HTTP
+try:
+    response = requests.get(url)
+    response.raise_for_status()
+except requests.RequestException as e:
+    print(f"❌ Erro ao realizar a requisição HTTP: {e}")
+    exit()
 
 # Faz o parsing do HTML usando BeautifulSoup
 soup = BeautifulSoup(response.text, 'html.parser')
@@ -69,8 +76,10 @@ final_response["reviews_average_score"] = float(score.get_text().split(":")[1].s
 # Armazena a URL de origem dos dados
 final_response["url"] = url 
 
-# Exporta os dados estruturados para um arquivo JSON
-with open ('produto.json', 'w',encoding='utf-8') as f:
-    json.dump(final_response, f, indent=2, ensure_ascii=False)
-
-print("✅ Dados extraídos e salvos com sucesso.")    
+# Salva os dados em um arquivo JSON
+try:
+    with open('produto.json', 'w', encoding='utf-8') as f:
+        json.dump(final_response, f, indent=2, ensure_ascii=False)
+    print("✅ Dados extraídos e salvos com sucesso.")
+except IOError as e:
+    print(f"❌ Erro ao salvar o arquivo JSON: {e}") 
