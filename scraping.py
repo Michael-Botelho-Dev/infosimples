@@ -2,10 +2,10 @@ import requests
 import json
 from bs4 import BeautifulSoup
 
-# Realiza a requisição HTTP para obter o conteúdo da página do produto
+# URL da página do produto
 url = 'https://infosimples.com/vagas/desafio/commercia/product.html'
 
-# Faz a requisição HTTP
+# Tenta fazer a requisição HTTP
 try:
     response = requests.get(url)
     response.raise_for_status()
@@ -76,7 +76,7 @@ final_response["reviews_average_score"] = float(score.get_text().split(":")[1].s
 # Armazena a URL de origem dos dados
 final_response["url"] = url 
 
-# Salva os dados em um arquivo JSON
+# Tenta salvar os dados em um arquivo JSON
 try:
     with open('produto.json', 'w', encoding='utf-8') as f:
         json.dump(final_response, f, indent=2, ensure_ascii=False)
