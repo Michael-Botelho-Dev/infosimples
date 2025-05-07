@@ -22,7 +22,7 @@ categories = soup.select("nav.current-category a")
 final_response["categories"] = [cat.get_text() for cat in categories]
 
 # description 
-final_response["description"] = soup.select_one('.proddet p').get_text(strip=True)
+final_response["description"] = soup.select_one('.proddet').get_text(strip=True)
 
 # skus
 final_response["skus"] = []
@@ -34,6 +34,31 @@ for card in soup.select(".card"):
         "current_price": float(card.select_one(".prod-pnow").get_text(strip=True).replace("R$", "").replace(",", ".")) if card.select_one(".prod-pnow") else None,
         "old_price": float(card.select_one(".prod-pold").get_text(strip=True).replace("R$", "").replace(",", ".")) if card.select_one(".prod-pold") else None,
         "available": "not-avaliable" not in card.get("class", [])
+    })
+
+# properties
+final_response["properties"] = []
+
+for row in soup.select(".pure-table tr"):
+
+    tds = row.select("td")
+    if len(tds) == 2:
+        label = tds[0].get_text(strip=True)
+        value = tds[1].get_text(strip=True)
+        final_response["properties"].append({
+            "label": label,
+            "value": value
+        })
+
+# reviews
+final_response["reviews"] = []
+
+for review in soup.select(".analisebox"):
+    final_response["reviews"].append({
+        "name": review.select_one(".analiseusername").get_text(strip=True),
+        "date": review.select_one(".analisedate").get_text(strip=True),
+        "score": review.select_one(".analisestars").get_text(strip=True).count("★"),
+        "text": review.select("p")[-1].get_text(strip=True)
     })
 
 

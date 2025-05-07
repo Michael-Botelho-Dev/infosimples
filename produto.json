@@ -7,7 +7,7 @@
     "Bath",
     "Rubber Ducks"
   ],
-  "description": "Apresentando os Patos de Borracha Quânticos, a última palavra em diversão aquática! Criados pelo excêntrico Dr. Quacksalot, esses patinhos de borracha vão além do comum, com habilidades de fala, dança e personalidades únicas. Com sua durabilidade de alta qualidade, esses patos são garantia de diversão interminável na banheira. Escolha entre uma variedade de cores e estilos e mergulhe na loucura científica do Dr. Quacksalot hoje mesmo!",
+  "description": "DescriptionApresentando os Patos de Borracha Quânticos, a última palavra em diversão aquática! Criados pelo excêntrico Dr. Quacksalot, esses patinhos de borracha vão além do comum, com habilidades de fala, dança e personalidades únicas. Com sua durabilidade de alta qualidade, esses patos são garantia de diversão interminável na banheira. Escolha entre uma variedade de cores e estilos e mergulhe na loucura científica do Dr. Quacksalot hoje mesmo!Cada Patinho de Borracha Quântico vem equipado com um sistema de comunicação interdimensional, permitindo que eles conversem não apenas entre si, mas também com outros objetos inanimados no banheiro - prepare-se para diálogos improváveis entre seu pato de borracha e o sabonete! Além disso, esses patos têm uma habilidade secreta de transformação: basta apertar sua barriguinha e assistir enquanto se transformam em mini submarinos de borracha, prontos para explorar os confins da banheira em busca de aventuras subaquáticas surreais. Com os Patos de Borracha Quânticos, o limite da diversão é apenas sua imaginação (e talvez a sanidade do Dr. Quacksalot)!",
   "skus": [
     {
       "name": "Rubber Duck MK Ultra - Original",
@@ -26,6 +26,92 @@
       "current_price": 18.98,
       "old_price": null,
       "available": true
+    }
+  ],
+  "properties": [
+    {
+      "label": "Color",
+      "value": "Various"
+    },
+    {
+      "label": "Material",
+      "value": "Rubber"
+    },
+    {
+      "label": "Shape",
+      "value": "Ducky"
+    },
+    {
+      "label": "Size",
+      "value": "Medium"
+    },
+    {
+      "label": "Weight",
+      "value": "394 g"
+    },
+    {
+      "label": "Radioactivity Level",
+      "value": "Low"
+    },
+    {
+      "label": "Warranty",
+      "value": "1 year"
+    },
+    {
+      "label": "Nutritious value",
+      "value": "-"
+    },
+    {
+      "label": "Origin",
+      "value": "Camboja"
+    },
+    {
+      "label": "Allergenics",
+      "value": "None"
+    },
+    {
+      "label": "Recyclable?",
+      "value": "Yes"
+    },
+    {
+      "label": "Harmful?",
+      "value": "No"
+    },
+    {
+      "label": "Health benefits",
+      "value": "None"
+    },
+    {
+      "label": "Storage temperature",
+      "value": "0 - 25ºC"
+    },
+    {
+      "label": "Expiration date",
+      "value": "None"
+    },
+    {
+      "label": "Carbon footprint",
+      "value": "65 g CO2"
+    }
+  ],
+  "reviews": [
+    {
+      "name": "Louisa Eliel",
+      "date": "28/07/2021",
+      "score": 4,
+      "text": "Very good rubber ducks, however I think they are a bit too big for me."
+    },
+    {
+      "name": "Kairo Josué",
+      "date": "12/05/2021",
+      "score": 1,
+      "text": "Péssima qualidade. Já não fazem patos de borracha como antigamente."
+    },
+    {
+      "name": "Victor Huey",
+      "date": "03/04/2021",
+      "score": 5,
+      "text": "Very good"
     }
   ],
   "reviews_average_score": 3.3,
